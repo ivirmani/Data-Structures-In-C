@@ -75,11 +75,11 @@ void delete_pos()
 		{
 			ptr=ptr->link;
 			temp=ptr->link;
-			ptr->link=temp->link;
+			ptr->link=temp->link;}
 			printf("\nDeleted %d\n",temp->data);	
 			free(temp);
 			count--;
-		}
+		
 	}
 }
 void delete_end()
