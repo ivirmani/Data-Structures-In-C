@@ -71,10 +71,10 @@ void delete_pos()
 	else if(pos>1&&pos<count)
 	{
 		ptr=start;
-		for(i=1;i<pos;i++)
+		for(i=2;i<pos;i++)
 			ptr=ptr->link;
 			temp=ptr->link;
-			ptr->link=temp->link;}
+			ptr->link=temp->link;
 			printf("\nDeleted %d\n",temp->data);	
 			free(temp);
 			count--;
