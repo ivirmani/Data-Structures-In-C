@@ -71,8 +71,7 @@ void delete_pos()
 	else if(pos>1&&pos<count)
 	{
 		ptr=start;
-		for(i=1;i<pos+1;i++)
-		{
+		for(i=1;i<pos;i++)
 			ptr=ptr->link;
 			temp=ptr->link;
 			ptr->link=temp->link;}
