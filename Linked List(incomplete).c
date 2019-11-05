@@ -5,7 +5,7 @@ struct node
 {
 	int data;
 	struct node *link;
-};struct node *ptr,*start=NULL,*temp;
+};struct node *ptr,*start=NULL,*temp,*cur;
 void insert_beg()
 {
 	temp=(struct node*)malloc(sizeof(struct node));
@@ -44,8 +44,58 @@ void delete_beg()
 		printf("Empty\n");
 	else
 	{
+		if(start->link==NULL)
+		{
+			start=NULL;
+		}
+		ptr=start;
+		start=start->link;
+		free(ptr);
+	}
+}
+void delete_pos()
+{
+	int count=0,i,pos;
+	ptr=start;
+	while(ptr!=NULL)
+	{
+		count++;
+		ptr=ptr->link;
+	}
+	printf("Enter the position of ther node to be deleted\n");
+	scanf("%d",&pos);
+	if(pos==1)
+		delete_beg();
+	else if(pos==count)
+		delete_end();
+	else if(pos>1&&pos<count)
+	{
+		ptr=start;
+		for(i=1;i<pos+1;i++)
+		{
+			ptr=ptr->link;
+			temp=ptr->link;
+			ptr->link=temp->link;
+			printf("\nDeleted %d\n",temp->data);	
+			free(temp);
+			count--;
+		}
+	}
+}
+void delete_end()
+{
+	if(start==NULL)
+		printf("Empty\n");
+	else
+	{
 		ptr=start;
 		while(ptr->link!=NULL)
+		{
+			cur=ptr;
+			ptr=ptr->link;
+		}
+		cur->link=NULL;
+		free(ptr);	
 	}
 }
 void display()
@@ -69,7 +119,7 @@ void main()
 	int ch;
         while(1)
 	{
-		printf("1.Insert Beginning\n2.Insert End\n3.Display\nEnter The Choice\n");
+		printf("1.Insert Beginning\n2.Insert End\n3.Display\n4.Delete End\n5.Delete Beginning\n6.Delete any position\nEnter The Choice\n");
 		scanf("%d",&ch);
 		switch(ch)
 		{
@@ -79,7 +129,12 @@ void main()
 		      break;
 		case 3:display();
 		      break;
-		case 4:exit(0);
+		case 4:delete_end();
+		      break;
+		case 5:delete_beg();
+		      break;
+		case 6:delete_pos();
+		      break;
 		}
 	}
 }
