@@ -7,22 +7,38 @@ struct node
     struct node *rlink;
 };
 struct node *start=NULL,*temp,*cur,*ptr;
-void insert_beg(struct node *temp)
+struct node* insert_beg()
 {
+    temp=(struct node*)malloc(sizeof( struct node));
+    printf("\nEnter the data\n");
+    int value;
+
+    scanf("%d",&value);
+    temp->data=value;
+    temp->rlink=NULL;
+    temp->llink=NULL;
     if(start==NULL)
         start=temp;
     else
     {
         temp->rlink=start;
+         // printf("%d\n",temp->rlink->data);
         start->llink=temp;
         start=temp;
+
+       // printf("%d\n",start->data);
+
     }
+    return temp;
+
 }
 void insert_end()
 {
     temp=(struct node*)malloc(sizeof(struct node));
     printf("\nEnter the data\n");
-    scanf("%d",&temp->data);
+    int value;
+    scanf("%d",&value);
+    temp->data=value;
     temp->llink=NULL;
     temp->rlink=NULL;
     if(start==NULL)
@@ -38,20 +54,21 @@ void insert_end()
 }
 void insert()
 {
-    temp=(struct node*)malloc(sizeof(struct node));
-    printf("\nEnter the data\n");
-    scanf("%d",&temp->data);
-    temp->llink=NULL;
-    temp->rlink=NULL;
-    insert_beg(temp);
-    ptr=start->rlink;
-    while((temp->data>ptr->data)&&ptr!=NULL)
+
+    struct node* tempo=insert_beg();
+
+
+
+    ptr=tempo->rlink;
+    printf("%d\n",ptr->data);
+    printf("%d\n",tempo->data);
+    while(ptr!=NULL && (tempo->data>ptr->data))
     {
-        cur->data=ptr->data;
-        ptr->data=temp->data;
-        temp->data=cur->data;
+        int cur=ptr->data;
+        ptr->data=tempo->data;
+        tempo->data=cur;
         ptr=ptr->rlink;
-        temp=temp->rlink;
+        tempo=tempo->rlink;
     }
 }
 void display()
@@ -79,7 +96,7 @@ void main()
         {
             case 1:display();
                     break;
-
+            case 2: insert_beg();break;
             case 3:insert_end();
                     break;
             case 4:insert();
