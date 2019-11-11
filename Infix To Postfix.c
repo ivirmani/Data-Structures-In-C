@@ -87,4 +87,5 @@ void main()
 		postfix[j]='\0';
 		printf("The Postfix Expression Is ");
 		puts(postfix);
+       }
 }
