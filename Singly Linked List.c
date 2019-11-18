@@ -140,7 +140,7 @@ void delete_pos()
     else
         printf("\nInvalid position entered\n");
 }
-void alt()
+void delete_alt()
 {
     if(start==NULL)
         printf("Invalid\n");
