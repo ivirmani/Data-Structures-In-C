@@ -140,6 +140,25 @@ void delete_pos()
     else
         printf("\nInvalid position entered\n");
 }
+void alt()
+{
+    if(start==NULL)
+        printf("Invalid\n");
+    else
+    {
+        cur=start;
+        temp=start->link;
+        while(cur!=NULL&&temp!=NULL)
+        {
+            cur->link=temp->link;
+            printf("Deleted Element Is %d\n",temp->data);
+            free(temp);
+            cur=cur->link;
+            if(cur!=NULL)
+                temp=cur->link;
+        }
+    }
+}
 void display()
 
 {
@@ -162,7 +181,7 @@ void main()
     int ch;
         while(1)
 	{
-		printf("1.Insert Beginning\n2.Insert End\n3.Insert position\n4.Delete End\n5.Delete Beginning\n6.Delete any position\n7.Display\n8.Exit\nEnter The Choice\n");
+		printf("\n1.Insert Beginning\n2.Insert End\n3.Insert position\n4.Delete End\n5.Delete Beginning\n6.Delete any position\n7.Display\n8.Delete every alternate node\n9.Exit\nEnter The Choice\n");
 		scanf("%d",&ch);
 		switch(ch)
 		{
@@ -178,9 +197,11 @@ void main()
 		      break;
 		case 6:delete_pos();
 		      break;
-        case 7:display();
-               break;
-        case 8:exit(0);
+        	case 7:display();
+              	      break;
+        	case 8:delete_alt();
+                      break;
+        	case 9:exit(0);
 		}
 	}
 }
