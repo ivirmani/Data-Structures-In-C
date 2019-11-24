@@ -16,7 +16,11 @@ void main()
     root->llink=NULL;
     root->rlink=NULL;
     create(root);
-    printf("Inorder expression of the tree is ");
+    printf("Postorder expression of the tree is ");
+    postorder(root);
+    printf("\nPreorder expression of the tree is ");
+    preorder(root);
+    printf("\nInorder expression of the tree is ");
     inorder(root);
 }
 int is_lc(struct node *tree)
@@ -72,22 +76,24 @@ void inorder(struct node *tree)
         printf("%d",tree->data);
         inorder(tree->rlink);
     }
+
 }
 void preorder(struct node *tree)
 {
     if(tree!=NULL)
     {
         printf("%d",tree->data);
-        inorder(tree->llink);
-        inorder(tree->rlink);
+        preorder(tree->llink);
+        preorder(tree->rlink);
     }
+
 }
 void postorder(struct node *tree)
 {
     if(tree!=NULL)
     {
-        inorder(tree->llink);
-        inorder(tree->rlink);
+        postorder(tree->llink);
+        postorder(tree->rlink);
         printf("%d",tree->data);
     }
 }
