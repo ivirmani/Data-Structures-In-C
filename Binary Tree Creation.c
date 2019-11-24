@@ -37,7 +37,7 @@ int is_lc(struct node *tree)
 int is_rc(struct node *tree)
 {
     int ch;
-    printf("Do you want to create a right child for %d?\n",tree->data);8
+    printf("Do you want to create a right child for %d?\n",tree->data);
     printf("Press 1 for Yes & 0 for No\n");
     scanf("%d",&ch);
     if(ch==1)
