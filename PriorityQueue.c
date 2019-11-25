@@ -65,7 +65,7 @@ void main()
     int ch;
     while(1)
     {
-        printf("\nEnter a choice\n1.InsertPrior\n2.Delete\n3.Display\n4.Check\n5.Exit\n");
+        printf("\nEnter a choice\n1.InsertPrior\n2.Delete\n3.Display\n4.Exit\n");
         scanf("%d",&ch);
         switch(ch)
         {
@@ -75,9 +75,7 @@ void main()
                 break;
             case 3: display();
                 break;
-            case 4:check(data);
-                break;
-            case 5:exit(0);
+            case 4:exit(0);
         }
     }
 }
