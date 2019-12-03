@@ -48,9 +48,9 @@ void inorder(struct node *temp)
     }
 }
 void main()
-{   int ch=1;
-
-    while(ch!=3)
+{   
+    int ch;
+    while(1)
     {
         printf("\nEnter your choice \n1.create\n2.Inorder\n3.Exit\n");
         scanf("%d",&ch);
