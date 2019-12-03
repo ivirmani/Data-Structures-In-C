@@ -50,17 +50,18 @@ void inorder(struct node *temp)
 void main()
 {   int ch=1;
 
-    while(ch!=3){
-    printf("\nEnter your choice \n1.create\n2.Inorder\n3.Exit\n");
-    scanf("%d",&ch);
-    switch(ch)
+    while(ch!=3)
     {
-        case 1:create();
+        printf("\nEnter your choice \n1.create\n2.Inorder\n3.Exit\n");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1:create();
                 break;
-        case 2:inorder(root);
+            case 2:inorder(root);
                 break;
-        case 3:exit(0);
-    }
+            case 3:exit(0);
+        }
     }
 }
 
