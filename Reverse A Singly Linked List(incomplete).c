@@ -53,15 +53,18 @@ void rev()
             ptr=ptr->link;
             count++;
         }
-        temp=cur->link;
-        cur=cur->link;
-        ptr=start;
-        temp1=ptr->link;
-        for(i=0;i<(count/2);i++)
+        temp=start;
+        start=ptr;
+        for(i=0;i<count;i++)
         {
-            temp2->data=ptr->data;
-
+            ptr->link=cur;
+            ptr=cur;
+            cur=temp;
+            while(cur->link!=temp)
+                cur=cur->link;
         }
+        temp->link=NULL;
+
     }
 }
 
