@@ -60,7 +60,7 @@ void rev()
             ptr->link=cur;
             ptr=cur;
             cur=temp;
-            while(cur->link!=temp)
+            while(cur->link!=ptr)
                 cur=cur->link;
         }
         temp->link=NULL;
