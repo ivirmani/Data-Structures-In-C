@@ -66,25 +66,25 @@ void main()
 			}
 			push(ch);
         }
-			else if(ch==')')
-			{
-				while(s[top]!='(')
-				{
-					postfix[j]=pop();
-					j++;
-				}
-			temp=pop();
-			}
-			else
-				printf("Invalid Character\n");
-			i++;
-    }
-		while(top>-1)
+	else if(ch==')')
+	{
+		while(s[top]!='(')
 		{
 			postfix[j]=pop();
 			j++;
 		}
-		postfix[j]='\0';
-		printf("The Postfix Expression Is ");
-		puts(postfix);
+		temp=pop();
+	}
+	else
+		printf("Invalid Character\n");
+	i++;
+    	}
+	while(top>-1)
+	{
+		postfix[j]=pop();
+		j++;
+	}
+	postfix[j]='\0';
+	printf("The Postfix Expression Is ");
+	puts(postfix);
 }
